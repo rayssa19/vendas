@@ -48,10 +48,8 @@ $result = mysql_query("SELECT nome, clienteId, count(clienteId)
 
 				$rows = [];
 
-// Percorre todos os registros:
 				while ($row = mysql_fetch_assoc($result)) {
 
-    // Adiciona o registro na lista:
   				  array_push($rows, $row);
 
 				}
