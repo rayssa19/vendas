@@ -1,154 +1,60 @@
--- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: 09-Abr-2019 às 16:54
--- Versão do servidor: 10.1.28-MariaDB
--- PHP Version: 5.6.32
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
---
--- Database: `vendas`
---
 
--- --------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cliente` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
---
--- Estrutura da tabela `cliente`
---
+INSERT INTO `cliente` VALUES(1, 'Maria');
+INSERT INTO `cliente` VALUES(2, 'Joao');
+INSERT INTO `cliente` VALUES(3, 'Mariana');
+INSERT INTO `cliente` VALUES(5, 'Anderson');
+INSERT INTO `cliente` VALUES(7, 'Eduarda');
 
-CREATE TABLE `cliente` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `cliente`
---
-
-INSERT INTO `cliente` (`id`, `nome`) VALUES
-(1, 'Maria'),
-(2, 'Joao'),
-(3, 'Mariana');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `produto`
---
-
-CREATE TABLE `produto` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `produto` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(100) NOT NULL,
-  `preco` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `preco` double NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
---
--- Extraindo dados da tabela `produto`
---
+INSERT INTO `produto` VALUES(1, 'arroz', 2.5);
+INSERT INTO `produto` VALUES(2, 'acucar', 2);
+INSERT INTO `produto` VALUES(3, 'leite', 4);
+INSERT INTO `produto` VALUES(4, '', 0);
+INSERT INTO `produto` VALUES(5, 'feijao', 4);
 
-INSERT INTO `produto` (`id`, `descricao`, `preco`) VALUES
-(1, 'arroz', 2.5),
-(2, 'acucar', 2),
-(3, 'leite', 4);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `venda`
---
-
-CREATE TABLE `venda` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `venda` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `clienteId` int(11) NOT NULL,
   `prodId` int(11) NOT NULL,
   `data` date NOT NULL,
-  `vendedor` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `vendedor` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `clienteId` (`clienteId`),
+  KEY `prodId` (`prodId`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
---
--- Extraindo dados da tabela `venda`
---
-
-INSERT INTO `venda` (`id`, `clienteId`, `prodId`, `data`, `vendedor`) VALUES
-(1, 1, 1, '2019-04-20', 'Sandra'),
-(3, 2, 3, '2019-04-04', 'Sandra'),
-(4, 3, 3, '2019-04-05', 'Antonio'),
-(5, 3, 2, '2019-04-05', 'Antonio'),
-(6, 1, 3, '2019-05-20', 'Sandra'),
-(7, 1, 2, '2019-04-05', 'Antonio'),
-(8, 1, 2, '2019-04-05', 'Sandra'),
-(9, 1, 2, '2019-04-05', 'Sandra'),
-(10, 3, 3, '0000-00-00', 'Sandra');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `cliente`
---
-ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `produto`
---
-ALTER TABLE `produto`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `venda`
---
-ALTER TABLE `venda`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `clienteId` (`clienteId`),
-  ADD KEY `prodId` (`prodId`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `cliente`
---
-ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `produto`
---
-ALTER TABLE `produto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `venda`
---
-ALTER TABLE `venda`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- Constraints for dumped tables
---
-
---
--- Limitadores para a tabela `venda`
---
-ALTER TABLE `venda`
-  ADD CONSTRAINT `venda_ibfk_1` FOREIGN KEY (`clienteId`) REFERENCES `cliente` (`id`),
-  ADD CONSTRAINT `venda_ibfk_2` FOREIGN KEY (`prodId`) REFERENCES `produto` (`id`);
-COMMIT;
+INSERT INTO `venda` VALUES(1, 1, 1, '2019-04-20', 'Sandra');
+INSERT INTO `venda` VALUES(3, 2, 3, '2019-04-04', 'Sandra');
+INSERT INTO `venda` VALUES(4, 3, 3, '2019-04-05', 'Antonio');
+INSERT INTO `venda` VALUES(5, 3, 2, '2019-04-05', 'Antonio');
+INSERT INTO `venda` VALUES(6, 1, 3, '2019-05-20', 'Sandra');
+INSERT INTO `venda` VALUES(7, 1, 2, '2019-04-05', 'Antonio');
+INSERT INTO `venda` VALUES(8, 1, 2, '2019-04-05', 'Sandra');
+INSERT INTO `venda` VALUES(9, 1, 2, '2019-04-05', 'Sandra');
+INSERT INTO `venda` VALUES(17, 5, 1, '2019-03-08', 'Antonio');
+INSERT INTO `venda` VALUES(15, 7, 2, '2019-03-08', 'Antonio');
+INSERT INTO `venda` VALUES(16, 5, 1, '2019-03-08', 'Antonio');
+INSERT INTO `venda` VALUES(18, 7, 3, '2019-03-08', 'Sandra');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
