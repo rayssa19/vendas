@@ -30,15 +30,23 @@ $sql = "SELECT * FROM venda WHERE month(data)='$data'";
 
 		include 'db.php';
 		@$data = $_POST['data'];
-	        $query = "SELECT COUNT(id), vendedor FROM venda WHERE month(data) = '$data' group by vendedor";
-	        $exe = mysql_query($query) or die("Erro header+-62:". mysql_error());
-	        $result = mysql_fetch_assoc($exe);
-	            do{
 
-	            $arr = array('vendedor' => $result['vendedor'], 'quantidade vendida' => $result['COUNT(id)']);
-	        echo "<p align='center'>".json_encode($arr) . "</p><br>";
-	            }while($result = mysql_fetch_assoc($exe));
-	            }
+	        $result = mysql_query("SELECT COUNT(id), vendedor FROM venda WHERE month(data) = '$data' group by vendedor");
+
+	        $data1 = mysql_fetch_assoc($result);
+
+	        file_put_contents("file.json", json_encode($data1));
+
+				$rows = [];
+
+				while ($row = mysql_fetch_assoc($result)) {
+
+  				  array_push($rows, $row);
+
+				}
+				$json = json_encode($rows);
+	            
+	           } 
 	        ?>
 	</table>
 	<br>
