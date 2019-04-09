@@ -1,0 +1,123 @@
+.conteudo{
+	margin: 5px 5%;
+}
+.form-login, .form-cadastro {
+	width: 50%;
+	margin: auto;
+}
+.titulo{
+	text-align: center;
+	font-size: 23px;
+	font-weight: bold;
+}
+.center {
+	text-align: center;
+}
+.direita {
+	text-align: right;
+}
+.txt-direc {
+	text-align: center;
+}
+.txt-welcome {
+    color: #fff;
+    float: left;
+    padding: 10px 10px 0px;
+}
+.pergunta {
+	background: rgba(0,0,0,.2);
+	border: 1px #000 solid;
+    max-height: 300px;
+}
+.usuario {
+	width: 20%;
+	border-right: 1px #000 solid;
+}
+.img {
+	background-color: #fff;
+    width: 50%;
+    height: 120px;
+    margin: 5px auto;
+    border-radius: 100%;
+    padding: 0px;
+}
+.img i{
+	font-size: 75px;
+	margin: 20% 25%;
+}
+.usuario .nome {
+	text-align: center;
+	text-decoration: underline; 
+}
+.dados{
+	float: right;
+	width: 79%;
+	margin: 5px;
+}
+.opcoes {
+	text-align: right;
+}
+.opcoes i{
+	color: #f00;
+}
+.descricao {
+	width: 100%;
+	overflow: auto;
+}
+.resposta {
+    background: #eee;
+    border: 1px #000 solid;
+}
+.lateral {
+    float: left;
+    width: 20%;
+}
+.infor {
+    min-height: 200px;
+    margin-left: 20%;
+}
+.fundo {
+    width: 40%;
+    background: #eee;
+    margin: auto;
+    border: 1px solid #000;
+    border-radius: 100%;
+    padding: 25px;
+    text-align: center;
+}
+.fundo i{
+	font-size: 110px;
+}
+.menu-lat {
+	list-style: none;
+    margin: 20px auto;
+}
+.menu-lat .item {
+    text-align: center;
+    padding: 8px 2px;
+}
+.menu-lat .item:hover {
+	background-color: #1788d2;
+}
+.menu-lat .item:hover a {
+	color: #fff;
+}
+.lista-amigos {
+	list-style: none;
+}
+.foto {
+    width: 5%;
+    border: 1px solid #000;
+    float: right;
+    border-radius: 100%;
+    padding: 40px;
+    text-align: center;
+}
+.user {
+	border-bottom: 1px dotted #dedede;
+	padding: 5px;
+	min-height: 140px;
+}
+.foto i{
+	font-size: 50px;
+}

@@ -1,0 +1,125 @@
+.site-footer {
+  border-top: 4px solid #dddddd;
+  width: 100%;
+}
+.site-footer a {
+  color: #aaaaaa;
+}
+.site-footer a:hover {
+  color: white;
+}
+.site-footer ul {
+  padding: 0;
+  margin: 0;
+  list-style: square inside none;
+}
+.site-footer ul li {
+  line-height: 1.75em;
+}
+
+@media (max-width: 992px) {
+  .footer-widget {
+    margin-bottom: 30px;
+  }
+}
+
+h1.footer-widget-title {
+  text-transform: uppercase;
+  font-size: 16px;
+  color: white;
+  margin: 0 0 20px 0;
+}
+h2.footer-widget-title {
+  text-transform: uppercase;
+  font-size: 16px;
+  color: white;
+  margin: 0 0 20px 0;
+}
+h3.footer-widget-title {
+  text-transform: uppercase;
+  font-size: 16px;
+  color: white;
+  margin: 0 0 20px 0;
+}
+h4.footer-widget-title {
+  text-transform: uppercase;
+  font-size: 16px;
+  color: white;
+  margin: 0 0 20px 0;
+}
+.footer-widget > p {
+	color: #aaaaaa;
+}
+.copyright p {
+	color: #eee;
+}
+.top-footer {
+  background-color: #f9c321;
+  padding: 40px 0;
+  color: #c0d2bb;
+}
+.top-footer a {
+  color: white;
+}
+
+.contact-info ul li span {
+  margin-right: 7px;
+}
+
+ul.footer-social {
+  list-style: none !important;
+}
+ul.footer-social li {
+  float: left;
+  display: inline-block;
+  margin-right: 1px;
+  margin-bottom: 1px;
+}
+ul.footer-social li a {
+  width: 66px;
+  height: 66px;
+  line-height: 66px;
+  background-color: #5b7d54;
+  text-align: center;
+  color: white;
+}
+
+.main-footer {
+  background-color: rgba(33, 35, 32, 0.96);
+  padding-top: 40px;
+}
+
+.footer-gallery {
+  overflow: hidden;
+  margin-left: -3%;
+}
+.footer-gallery .gallery-thumb {
+  width: 20%;
+  margin-left: 3%;
+  margin-bottom: 3%;
+  float: left;
+  -moz-transition: all 150ms ease-in-out;
+  -o-transition: all 150ms ease-in-out;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+.footer-gallery .gallery-thumb img {
+  width: 100%;
+}
+
+.copyright {
+  margin-top: 40px;
+  border-top: 1px solid #43463f;
+  padding: 10px 0;
+}
+.copyright .credits {
+  text-align: right;
+}
+@media (max-width: 92px) {
+  .copyright {
+    text-align: center;
+  }
+  .copyright .credits {
+    text-align: center;
+  }
+}
