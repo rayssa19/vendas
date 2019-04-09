@@ -28,7 +28,7 @@ $sql = "SELECT * FROM produto WHERE descricao='$descricao'";
 		<?php
 		include 'db.php';
 		@$descricao = $_POST['descricao'];
-$query = "SELECT nome, clienteId, count(clienteId)
+$result = mysql_query("SELECT nome, clienteId, count(clienteId)
 
       FROM cliente, venda, produto WHERE produto.descricao = '$descricao' AND produto.id = venda.prodId AND venda.clienteId = cliente.id
 
@@ -40,16 +40,23 @@ $query = "SELECT nome, clienteId, count(clienteId)
 
       FROM cliente, venda, produto  WHERE produto.descricao = '$descricao' AND produto.id = venda.prodId AND venda.clienteId = cliente.id
 
-      GROUP BY (clienteId)) AS a)";
+      GROUP BY (clienteId)) AS a)");
 
-	        $exe = mysql_query($query) or die("Erro header+-62:". mysql_error());
-	        $result = mysql_fetch_assoc($exe);
-	            do{
+	        $data = mysql_fetch_assoc($result);
 
-	        $arr = array('nome' => $result['nome'], 'quantidade comprada' => $result['count(clienteId)']);
-	        echo "<p align='center'>".json_encode($arr)."</p>";
+	        file_put_contents("file.json", json_encode($data));
+
+				$rows = [];
+
+// Percorre todos os registros:
+				while ($row = mysql_fetch_assoc($result)) {
+
+    // Adiciona o registro na lista:
+  				  array_push($rows, $row);
+
+				}
+				$json = json_encode($rows);
 	            
-	            }while($result = mysql_fetch_assoc($exe));
 	           } 
 	        ?>
 	</table>
